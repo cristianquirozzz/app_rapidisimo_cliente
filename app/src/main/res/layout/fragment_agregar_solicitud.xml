@@ -144,55 +144,6 @@
                     android:text=""/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/ic_location"
-                    android:enabled="false"
-                    android:hint="Latitud">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtLatitud"
-                        android:inputType="numberDecimal"
-                        android:background="@drawable/esquinas_redondeadas"
-                        android:backgroundTint="@color/colorAccent"
-                        android:text=""/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/ic_location"
-                    android:enabled="false"
-                    android:hint="Longitud">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtLongitud"
-                        android:inputType="numberDecimal"
-                        android:background="@drawable/esquinas_redondeadas"
-                        android:backgroundTint="@color/colorAccent"
-                        android:text=""/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>
