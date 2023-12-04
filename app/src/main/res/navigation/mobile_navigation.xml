@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_inicio"
-        android:name="pe.usat.moviles.rapidisimoapp.fragments.HomeFragment"
+        android:name="pe.usat.moviles.rapidisimoapp_cliente.fragments.HomeFragment"
         android:label="@string/menu_inicio"
         tools:layout="@layout/fragment_home" >
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/nav_solicitudes"
-        android:name="pe.usat.moviles.rapidisimoapp.fragments.OrderFragment"
+        android:name="pe.usat.moviles.rapidisimoapp_cliente.fragments.OrderFragment"
         android:label="@string/menu_solicitudes"
         tools:layout="@layout/fragment_order" >
         <action
@@ -30,17 +30,17 @@
 
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="pe.usat.moviles.rapidisimoapp.fragments.ProfileFragment"
+        android:name="pe.usat.moviles.rapidisimoapp_cliente.fragments.ProfileFragment"
         android:label="@string/menu_perfil"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/agregarEstadoFragment"
-        android:name="pe.usat.moviles.rapidisimoapp.fragments.AgregarEstadoFragment"
+        android:name="pe.usat.moviles.rapidisimoapp_cliente.fragments.AgregarEstadoFragment"
         android:label="Registrar Nuevo Estado"
         tools:layout="@layout/fragment_agregar_estado" />
     <fragment
         android:id="@+id/detalleSolicitudFragment"
-        android:name="pe.usat.moviles.rapidisimoapp.fragments.DetalleSolicitudFragment"
+        android:name="pe.usat.moviles.rapidisimoapp_cliente.fragments.DetalleSolicitudFragment"
         android:label="Detalle de Solicitud"
         tools:layout="@layout/fragment_detalle_solicitud" >
         <action

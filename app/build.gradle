@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'pe.usat.moviles.rapidisimoapp'
+    namespace 'pe.usat.moviles.rapidisimoapp_cliente'
     compileSdk 33
 
     defaultConfig {
-        applicationId "pe.usat.moviles.rapidisimoapp"
+        applicationId "pe.usat.moviles.rapidisimoapp_cliente"
         minSdk 27
         targetSdk 33
         versionCode 1
