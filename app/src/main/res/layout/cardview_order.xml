@@ -21,12 +21,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtEstado"
-            android:background="@color/rojo"
+            android:background="@drawable/esquinas_estado"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:gravity="center"
             android:text="ESTADO"/>
 
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="15px"></Space>
 
         <TextView
             android:layout_width="match_parent"

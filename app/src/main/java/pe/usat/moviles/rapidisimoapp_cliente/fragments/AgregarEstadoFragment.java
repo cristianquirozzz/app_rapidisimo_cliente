@@ -27,7 +27,7 @@ public class AgregarEstadoFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_agregar_estado, container, false);
+        final View view = inflater.inflate(R.layout.fragment_agregar_solicitud, container, false);
 
 
         return view;

@@ -37,7 +37,7 @@
         android:id="@+id/agregarEstadoFragment"
         android:name="pe.usat.moviles.rapidisimoapp_cliente.fragments.AgregarEstadoFragment"
         android:label="Registrar Nuevo Estado"
-        tools:layout="@layout/fragment_agregar_estado" />
+        tools:layout="@layout/fragment_agregar_solicitud" />
     <fragment
         android:id="@+id/detalleSolicitudFragment"
         android:name="pe.usat.moviles.rapidisimoapp_cliente.fragments.DetalleSolicitudFragment"
