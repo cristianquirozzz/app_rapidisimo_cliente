@@ -4,9 +4,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="rojo">#C55252</color>
 
-    <color name="primaryColor">#f9db5c</color>
+    <color name="primaryColor">#efb810</color>
     <color name="primaryColorDark">#b28405</color>"
-    <color name="colorAccent">#e9f2f9</color>
-    <color name="colorAccentDark">#ffff94</color>
+    <color name="colorAccent">#ffff94</color>
+    <color name="colorAccentDark">#f9db5c</color>
     <color name="secondaryColor">#795300</color>
 </resources>
