@@ -16,6 +16,7 @@ import java.util.List;
 
 import pe.usat.moviles.rapidisimoapp_cliente.R;
 import pe.usat.moviles.rapidisimoapp_cliente.model.Solicitud;
+import pe.usat.moviles.rapidisimoapp_cliente.model.Estado_Solicitud;
 
 public class SolicitudAdapter extends RecyclerView.Adapter<SolicitudAdapter.SolicitudViewHolder>{
 
@@ -51,7 +52,7 @@ public class SolicitudAdapter extends RecyclerView.Adapter<SolicitudAdapter.Soli
 
     public class SolicitudViewHolder extends RecyclerView.ViewHolder{
         //Declarar los controles que tiene el cardview de Solicitud
-        private TextView txtOrigen, txtDestino, txtClase, txtTipo, txtCategoria, txtDescripcion, txtPeso;
+        private TextView txtOrigen, txtDestino, txtClase, txtTipo, txtCategoria, txtDescripcion, txtPeso, txtEstado;
 
         public SolicitudViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -63,7 +64,7 @@ public class SolicitudAdapter extends RecyclerView.Adapter<SolicitudAdapter.Soli
             txtCategoria = itemView.findViewById(R.id.txtCategoria);
             txtDescripcion = itemView.findViewById(R.id.txtDescripcion);
             txtPeso = itemView.findViewById(R.id.txtPeso);
-            
+            txtEstado = itemView.findViewById(R.id.txtEstado);
         }
 
         public void bind(final Solicitud solicitud){

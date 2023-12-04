@@ -17,6 +17,7 @@ public class Solicitud {
     private int TARIFAid;
     private int CLIENTEid;
     private int PAGO_SOLICITUDid;
+    private int ESTADO_SOLICITUDid;
 
     public int getId() {
         return id;
@@ -136,5 +137,13 @@ public class Solicitud {
 
     public void setPAGO_SOLICITUDid(final int PAGO_SOLICITUDid) {
         this.PAGO_SOLICITUDid = PAGO_SOLICITUDid;
+    }
+
+    public int getESTADO_SOLICITUDid() {
+        return ESTADO_SOLICITUDid;
+    }
+
+    public void setESTADO_SOLICITUDid(int ESTADO_SOLICITUDid) {
+        this.ESTADO_SOLICITUDid = ESTADO_SOLICITUDid;
     }
 }
