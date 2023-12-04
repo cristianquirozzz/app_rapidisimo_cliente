@@ -1,9 +1,11 @@
 package pe.usat.moviles.rapidisimoapp_cliente.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import pe.usat.moviles.rapidisimoapp_cliente.R;
@@ -20,6 +23,7 @@ import pe.usat.moviles.rapidisimoapp_cliente.databinding.FragmentOrderBinding;
 import pe.usat.moviles.rapidisimoapp_cliente.model.Solicitud;
 import pe.usat.moviles.rapidisimoapp_cliente.response.DetalleSolicitudResponse;
 import pe.usat.moviles.rapidisimoapp_cliente.response.SolicitudListadoClienteResponse;
+import pe.usat.moviles.rapidisimoapp_cliente.response.SolicitudListadoResponse;
 import pe.usat.moviles.rapidisimoapp_cliente.retrofit.ApiService;
 import pe.usat.moviles.rapidisimoapp_cliente.retrofit.RetrofitClient;
 import retrofit2.Call;
@@ -32,7 +36,7 @@ public class OrderFragment extends Fragment {
 
     RecyclerView recyclerViewSolicitudes;
     SolicitudAdapter solicitudAdapter;
-    List<Solicitud> solicitudesLista = new ArrayList<>();
+    List<Solicitud> solicitudesListaCliente = new ArrayList<>();
     SwipeRefreshLayout swipeRefreshLayoutSolicitudes;
 
 
@@ -47,7 +51,7 @@ public class OrderFragment extends Fragment {
         //Configurar el recyclerview
         recyclerViewSolicitudes = view.findViewById(R.id.recyclerViewSolicitudes);
         recyclerViewSolicitudes.setLayoutManager(new LinearLayoutManager(getContext()));
-        solicitudAdapter = new SolicitudAdapter(solicitudesLista, true);
+        solicitudAdapter = new SolicitudAdapter(solicitudesListaCliente, true);
         recyclerViewSolicitudes.setAdapter(solicitudAdapter);
 
         //Configurar el swipeRefreshLayoutClientes
@@ -79,11 +83,24 @@ public class OrderFragment extends Fragment {
 
             @Override
             public void onResponse(final Call<SolicitudListadoClienteResponse> call, final Response<SolicitudListadoClienteResponse> response) {
+                if(response.code() == 200) {
+                    final boolean status = response.body().isStatus();
+                    if (status){
+                        solicitudesListaCliente.clear();
+                        solicitudesListaCliente.addAll(Arrays.asList(response.body().getData()));
 
+                        solicitudAdapter.notifyDataSetChanged();
+                    }
+                } else {
+                Log.e("Error al acceder al servicio web", response.message());
+                Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onFailure(final Call<SolicitudListadoClienteResponse> call, final Throwable t) {
+                Log.e("Falla al conectarse al servicio web", t.getMessage());
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -20,7 +20,7 @@ import java.util.List;
 import pe.usat.moviles.rapidisimoapp_cliente.R;
 import pe.usat.moviles.rapidisimoapp_cliente.adapter.SolicitudAdapter;
 import pe.usat.moviles.rapidisimoapp_cliente.model.Solicitud;
-import pe.usat.moviles.rapidisimoapp_cliente.response.SolicitudListadoResponse;
+import pe.usat.moviles.rapidisimoapp_cliente.response.SolicitudListadoClienteResponse;
 import pe.usat.moviles.rapidisimoapp_cliente.retrofit.ApiService;
 import pe.usat.moviles.rapidisimoapp_cliente.retrofit.RetrofitClient;
 import retrofit2.Call;
@@ -38,7 +38,6 @@ public class HomeFragment extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_order, container, false);
 
-        //Configurar el recyclerview
         recyclerViewSolicitudes = view.findViewById(R.id.recyclerViewSolicitudes);
         recyclerViewSolicitudes.setLayoutManager(new LinearLayoutManager(getContext()));
         solicitudAdapter = new SolicitudAdapter(solicitudesLista, false);
@@ -57,21 +56,20 @@ public class HomeFragment extends Fragment {
         });
         swipeRefreshLayoutSolicitudes.setColorSchemeResources(R.color.primaryColor, R.color.primaryColorDark, R.color.colorAccent);
 
-
-
         listarSolicitudes();
 
         return view;
     }
 
     private void listarSolicitudes(){
-        final int conductorId = 1;
+        final int clienteId = 1;
 
         final ApiService apiService = RetrofitClient.createService();
-        final Call<SolicitudListadoResponse> call = apiService.listadoSolicitudes();
-        call.enqueue(new Callback<SolicitudListadoResponse>() {
+
+        final Call<SolicitudListadoClienteResponse> call = apiService.listadoSolicitudesCliente(clienteId);
+        call.enqueue(new Callback<SolicitudListadoClienteResponse>() {
             @Override
-            public void onResponse(final Call<SolicitudListadoResponse> call, final Response<SolicitudListadoResponse> response) {
+            public void onResponse(final Call<SolicitudListadoClienteResponse> call, final Response<SolicitudListadoClienteResponse> response) {
                 if (response.code() == 200) {
                     final boolean status = response.body().isStatus();
                     if (status) {
@@ -88,7 +86,7 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(final Call<SolicitudListadoResponse> call, final Throwable t) {
+            public void onFailure(final Call<SolicitudListadoClienteResponse> call, final Throwable t) {
                 Log.e("Falla al conectarse al servicio web", t.getMessage());
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
 
