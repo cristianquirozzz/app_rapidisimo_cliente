@@ -10,7 +10,7 @@
     android:layout_margin="15dp"
     android:padding="10dp"
     android:elevation="10dp"
-    tools:context=".fragments.AgregarEstadoFragment">
+    tools:context=".fragments.AgregarSolicitudFragment">
 
 
     <ScrollView
@@ -21,37 +21,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Vehiculo"
-                style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu">
-
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteTextViewVehiculo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionSearch"
-                    android:inputType="textAutoComplete|textAutoCorrect"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
-            -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/input_layout_nombre"
+                android:id="@+id/input_layout_descripcion"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/ic_order"
-                android:hint="Nombre del estado">
+                app:startIconDrawable="@drawable/ic_description"
+                android:hint="Descripción">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtNombre"
+                    android:id="@+id/txtDescripcion"
                     android:inputType="text"
                     android:background="@drawable/esquinas_redondeadas"
                     android:backgroundTint="@color/colorAccent"
@@ -72,14 +53,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/ic_location"
                     android:enabled="false"
-                    android:hint="Latitud">
+                    android:hint="Clase">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtLatitud"
+                        android:id="@+id/txtClase"
                         android:inputType="numberDecimal"
                         android:background="@drawable/esquinas_redondeadas"
                         android:backgroundTint="@color/colorAccent"
@@ -95,14 +75,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/ic_location"
                     android:enabled="false"
-                    android:hint="Longitud">
+                    android:hint="Tipo">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtLongitud"
+                        android:id="@+id/txtTipo"
                         android:inputType="numberDecimal"
                         android:background="@drawable/esquinas_redondeadas"
                         android:backgroundTint="@color/colorAccent"
@@ -112,14 +91,24 @@
                 <Space
                     android:layout_width="10dp"
                     android:layout_height="match_parent"/>
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_location"
-                    android:layout_gravity="center"
-                    android:background="@drawable/esquinas_redondeadas"
-                    android:backgroundTint="@color/primaryColorDark"
-                    app:tint="@color/white" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="clear_text"
+                    android:enabled="false"
+                    android:hint="Categoría">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtCategoria"
+                        android:inputType="numberDecimal"
+                        android:background="@drawable/esquinas_redondeadas"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text=""/>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
@@ -129,15 +118,15 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/input_layout_descripcion"
+                android:id="@+id/input_layout_peso"
                 app:endIconMode="clear_text"
-                android:hint="Descripción"
-                app:startIconDrawable="@drawable/ic_description">
+                android:hint="Peso de Carga (Kg)"
+                app:startIconDrawable="@drawable/ic_order">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtDescripcion"
+                    android:id="@+id/txtPeso"
                     android:inputType="textMultiLine"
                     android:background="@drawable/esquinas_redondeadas"
                     android:backgroundTint="@color/colorAccent"
@@ -148,12 +137,230 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="clear_text"
+                    android:enabled="false"
+                    android:hint="Tiempo Partida">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtPartida"
+                        android:inputType="numberDecimal"
+                        android:background="@drawable/esquinas_redondeadas"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text=""/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="clear_text"
+                    android:enabled="false"
+                    android:hint="Tiempo LLegada">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtLlegada"
+                        android:inputType="numberDecimal"
+                        android:background="@drawable/esquinas_redondeadas"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text=""/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/ic_location"
+                    android:enabled="false"
+                    android:hint="Dirección Origen">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtOrigen"
+                        android:inputType="numberDecimal"
+                        android:background="@drawable/esquinas_redondeadas"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text=""/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/ic_location"
+                    android:enabled="false"
+                    android:hint="Dirección Destino">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDestino"
+                        android:inputType="numberDecimal"
+                        android:background="@drawable/esquinas_redondeadas"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text=""/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="clear_text"
+                    android:enabled="false"
+                    android:hint="Monto">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtMonto"
+                        android:layout_width="match_parent"
+                        android:layout_height="51dp"
+                        android:background="@drawable/esquinas_redondeadas"
+                        android:backgroundTint="@color/colorAccent"
+                        android:inputType="numberDecimal"
+                        android:text="" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="clear_text"
+                    android:enabled="false"
+                    android:hint="Distancia (km)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDistancia"
+                        android:inputType="numberDecimal"
+                        android:background="@drawable/esquinas_redondeadas"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text=""/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="clear_text"
+                    android:enabled="false"
+                    android:hint="Tarifa (id)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtTarifa"
+                        android:layout_width="match_parent"
+                        android:layout_height="51dp"
+                        android:background="@drawable/esquinas_redondeadas"
+                        android:backgroundTint="@color/colorAccent"
+                        android:inputType="numberDecimal"
+                        android:text="" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="clear_text"
+                    android:enabled="false"
+                    android:hint="Pago (id)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtPago"
+                        android:inputType="numberDecimal"
+                        android:background="@drawable/esquinas_redondeadas"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text=""/>
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnRegistrar"
                 android:backgroundTint="@color/primaryColorDark"
-                android:text="REGISTRAR ESTADO"/>
+                android:text="REGISTRAR SOLICITUD"/>
         </LinearLayout>
     </ScrollView>
 

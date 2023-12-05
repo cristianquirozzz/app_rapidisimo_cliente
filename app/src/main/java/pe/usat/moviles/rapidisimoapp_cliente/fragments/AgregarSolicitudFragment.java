@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import pe.usat.moviles.rapidisimoapp_cliente.R;
 
-public class AgregarEstadoFragment extends Fragment {
+public class AgregarSolicitudFragment extends Fragment {
 
     private int solicitudId;
 
